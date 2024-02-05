@@ -51,7 +51,7 @@ export default function Counter() {
         </div>
       )}
       {time === 0 && (
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center h-screen">
           <h1
             className={`px-4 py-2 bg-white ${
               count >= 20
@@ -63,6 +63,22 @@ export default function Counter() {
           >
             {`Your Score: ${count}`}
           </h1>
+          <p className="mt-2">
+            {count >= 20
+              ? "You are a Pro!"
+              : count >= 10
+              ? "You are a Beginner!"
+              : "You can do better!"}
+          </p>
+          <button
+            className="px-3 py-2 bg-white text-black rounded mt-10"
+            onClick={() => {
+              setCount(0);
+              setTime(60);
+            }}
+          >
+            Lets start once more!
+          </button>
         </div>
       )}
     </>
