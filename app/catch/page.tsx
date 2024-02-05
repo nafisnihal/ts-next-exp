@@ -23,8 +23,13 @@ export default function Counter() {
   return (
     <>
       <Timer time={time} setTime={setTime} />
-      {time > 0 && (
-        <div className="flex items-center justify-center h-screen relative cursor-pointer">
+      {time > 0 ? (
+        <div
+          className="flex items-center justify-center h-screen relative md:cursor-pointer"
+          style={{
+            userSelect: "none",
+          }}
+        >
           <div
             className={`p-1 w-24 md:p-0 md:h-32 md:w-32 bg-white absolute text-black flex items-center justify-center flex-col rounded cursor-grab`}
             style={{
@@ -49,8 +54,7 @@ export default function Counter() {
             <p>If You Can</p>
           </div>
         </div>
-      )}
-      {time === 0 && (
+      ) : (
         <div className="flex flex-col items-center justify-center h-screen">
           <h1
             className={`px-4 py-2 bg-white ${
