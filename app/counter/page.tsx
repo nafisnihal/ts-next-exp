@@ -14,9 +14,7 @@ export default function Counter() {
       setRandom1(randomNumber1);
       setRandom2(randomNumber2);
       setTrigger((prev) => prev + 1);
-      console.log("in settimeout");
     }, 500);
-    console.log("in useeffect");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
