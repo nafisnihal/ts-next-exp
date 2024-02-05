@@ -6,9 +6,9 @@ export default function Counter() {
   const [random1, setRandom1] = useState(0);
   const [random2, setRandom2] = useState(0);
 
-  const randomNumber1 = Math.floor(Math.random() * 600);
+  const randomNumber1 = Math.floor(Math.random() * 80);
 
-  const randomNumber2 = Math.floor(Math.random() * 1500);
+  const randomNumber2 = Math.floor(Math.random() * 80);
 
   const string1 = random1.toString();
 
@@ -18,17 +18,17 @@ export default function Counter() {
     setTimeout(() => {
       setRandom1(randomNumber1);
       setRandom2(randomNumber2);
-    }, 500);
+    }, 700);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [random1]);
 
   return (
     <div className="flex items-center justify-center h-screen relative cursor-pointer">
       <div
-        className={`h-52 w-52 bg-white absolute text-black flex items-center justify-center flex-col rounded cursor-grab`}
+        className={`p-1 w-24 md:p-0 md:h-32 md:w-32 bg-white absolute text-black flex items-center justify-center flex-col rounded cursor-grab`}
         style={{
-          top: `${string1}px`,
-          left: `${string2}px`,
+          top: `${string1}%`,
+          left: `${string2}%`,
           userSelect: "none",
         }}
         onClick={() => setCount(count + 1)}
@@ -41,7 +41,7 @@ export default function Counter() {
               : count >= 10
               ? "text-yellow-400"
               : "text-red-500"
-          }  w-52 text-center text-5xl`}
+          }  md:w-42 text-center text-xl md:text-5xl`}
         >
           {count}
         </h1>
