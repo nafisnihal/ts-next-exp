@@ -5,30 +5,28 @@ export default function Counter() {
   const [count, setCount] = useState(0);
   const [random1, setRandom1] = useState(0);
   const [random2, setRandom2] = useState(0);
-
-  const randomNumber1 = Math.floor(Math.random() * 80);
-
-  const randomNumber2 = Math.floor(Math.random() * 80);
-
-  const string1 = random1.toString();
-
-  const string2 = random2.toString();
+  const [trigger, setTrigger] = useState(0);
 
   useEffect(() => {
+    const randomNumber1 = Math.floor(Math.random() * 80);
+    const randomNumber2 = Math.floor(Math.random() * 80);
     setTimeout(() => {
       setRandom1(randomNumber1);
       setRandom2(randomNumber2);
+      setTrigger((prev) => prev + 1);
+      console.log("in settimeout");
     }, 700);
+    console.log("in useeffect");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [random1]);
+  }, [trigger]);
 
   return (
     <div className="flex items-center justify-center h-screen relative cursor-pointer">
       <div
         className={`p-1 w-24 md:p-0 md:h-32 md:w-32 bg-white absolute text-black flex items-center justify-center flex-col rounded cursor-grab`}
         style={{
-          top: `${string1}%`,
-          left: `${string2}%`,
+          top: `${random1}%`,
+          left: `${random2}%`,
           userSelect: "none",
         }}
         onClick={() => setCount(count + 1)}
